@@ -1,0 +1,2 @@
+model_checkpoint_path: "HLMP_AutoRegress"
+all_model_checkpoint_paths: "HLMP_AutoRegress"

@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block content %}
+  <div class="view_home">
+	<p> </p>
+
+  <div ><img src="./static/data/cristal_ball.jpg" alt="Cristal Ball"  width="200" height="150" align="left" vspace="20" hspace="10"/></div>
+  <span> <div ><h5> <br> <br> <br> <i>Predicting the electricity price in Mexico is never a trivial task. In this page, we will show you why it is not, and how we solved the puzzle.</i></h5> <br> <br> <br> </div> </span>
+
+
+
+	    <h3>The Difficulty:</h3>
+    <p>Electricity price is not a stand alone variable. Instead, it is the aggregate impact of numerous factors, such as time of the day, day of the week, temperature, humidity, crude oil price, exchange rate, cost of living and so on. The interactions between the price and these factors and the interrelationships within these factors determines the eventual electricity price. Below is a simple visual demonstration of the interactions between price and some of the factors aforementioned.</p>
+    
+  </div>
+
+  	<div class="graph1">
+		<h3>Relationship Between Price and Some of the External Factors</h3>
+		<p>We used the Monterrey temperature, exchange rate and crude oil price data for a simple demostration</p>
+	</div>
+
+    <div class="container-xl">
+                <div class="chart" id="bargraph">
+                        <script>
+                        var graphs = {{plot | safe}};
+                        Plotly.plot('bargraph',graphs,{});
+                        </script>
+        </div>
+    </div>
+
+    <div class="graph1">
+		<p>From the above, you will see some factors such as temperature has a noticeable correlation with the electricity price. Whereas other factors may have a more subtle relationship with the price.  </p>
+		<p>Traditional statistical models such as ARIMA or Prophet which focuses more on predicting the price directly don't work very well due to ignorance of the complex relationship between various determination factors. To capture the subtle, non-linear relationship among some of the important factors and price, we choose to apply cutting-edge Neural Networks. With the Autoregressive Recurrent Neural Networks, our model is able to figure out the complex relationships, and predict future electricity price at an hourly interval for the next 7 days with a fair degree of accuracy.</p>
+	</div>
+
+  <br>
+    <h3 class ="introTitle">Data Infrastructure</h1>
+
+    <p class ="introDetails">We leverage Amazon Web Service to build our entire data infrastructure on the cloud to enable a reliable, scalable, and performant data pipeline. We start with ETL process to perform web scraping from multiple sources and we leverage AWS Lambda and CloudWatch to implement scheduled run on the EC2 server in order to automate the forecast process based on the most updated data to achieve best possible accuracy. Then we perform feature transformation, creation, and consolidation to prepare for our training and inference data and store in S3. And we pull these clean data into SageMaker to perform machine learning prediction, and store the prediction output into a database and a web server to feed to our web dashboard for visualization and computation. Our web server utilizes Flask so the end user can interact with the web dashboard to customize for their need.  
+     </p>
+    <image src="./static/data/pipeline.PNG" class="center_large" width= 75%></image>
+
+
+{% endblock %}

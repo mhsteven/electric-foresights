@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--<link href="https://fonts.googleapis.com/css?family=Great+Vibes|Playfair+Display|Slabo+27px|Vidaloka&display=swap" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Assistant|Playfair+Display|Slabo+27px|Vidaloka&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- <script src="https://kit.fontawesome.com/44cce853e6.js" crossorigin="anonymous"></script> -->
+    <title>Model</title>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+img.animated-gif{
+  width: 50px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
+</head>
+
+<body>
+    <header>
+       <nav id="container">
+         <span class="toggleBars" id="togMenu"><i class="fas fa-bars "></i></span>
+           <ul class="topBar" id="js-menu">
+               <li><a href="http://electricforesights.net/">Home</a></li>
+           </ul>
+       </nav>
+   </header>
+
+    <section id="video">
+
+        <h1 class="introTitle">Our Model</h1>
+
+        <p class="introDetails">Our model ... (eg. model overview)
+        </p>
+
+        <p class = "introDetails">Placeholder for second paragraph... (model approach)
+        </p>
+
+
+        <p class="introDetails">Placeholder for third paragraph... (more detail that's informative or insightful or impressive)
+        </p>
+
+        <image src="downloads/model1.png" class="center_large"></image>
+
+
+
+        <p class="introDetails">Placeholder for evaluation result and insight or adjustment...
+        </p>
+
+        <image src="downloads/roc.png" class="center"></image>
+
+        <h1 class ="introTitle">Data Infrastructure</h1>
+
+        <p class ="introDetails">We leverage Amazon Web Service to build our entire data infrastructure on the cloud to enable a reliable, scalable, and performant data pipeline. We start with ETL process to perform web scraping from multiple sources and we leverage AWS Lambda and CloudWatch to implement scheduled run on the EC2 server in order to automate the forecast process based on the most updated data to achieve best possible accuracy. Then we perform feature transformation, creation, and consolidation to prepare for our data input stored in S3. And we pull these clean data into SageMaker to perform machine learning prediction, and store the prediction output into a database and a web server to finally feed to our web dashboard for visualization and computation. Our web server utilizes Flask so the end user can interact with the web dashboard to customize for their need.  
+         </p>
+        <image src="downloads/pipeline.png" class="center_large"></image>
+        <p> </p>
+        <p> </p>
+        <p> </p>
+        <p> </p>
+
+        </section>
+
+        <footer id="footer" align="center">
+        <p>Copyright © Electric Foresights 2020</p>
+        </footer>
+
+</body>
+</html>

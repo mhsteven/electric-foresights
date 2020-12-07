@@ -1,0 +1,74 @@
+body {
+  margin: 30px;
+  font-family: sans-serif;
+}
+
+.description {
+  max-width: 800px;
+}
+
+th {
+  background: #dfdfdf;
+  font-weight: bold;
+}
+
+td,th {
+  border: 1px solid transparent;
+  height: 30px;
+}
+
+tr:nth-child(even)  td {
+  background: #f1f1f1;
+}
+tr:nth-child(odd) td {
+  background: #fefefe;
+}
+
+td {
+  padding: 0 10px;
+  background: #fafafa;
+  text-align: left;
+}
+
+.chart-footer {
+  font-style: italic;
+  font-size: 10pt;
+  color: #aaa;
+}
+
+.titles{
+	color:yellow;
+	background:grey;
+}
+
+.dot {
+ border:1px solid red;
+
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.tickers {
+  margin: 0px 0px 0px 15px;
+  width:100px;
+}
+
+.stock_Checkbox {
+  margin:5px 5px 0px 0px;
+}
+
+#work_days {
+  background-color: 'green';
+}

@@ -1,0 +1,79 @@
+{% extends "index.html" %}
+{% block content %}
+	<div class="graph">
+		<h1>Electricity Cost Forecast Dashboard</h1>
+		<p>This dashboard is for the factory management team to forecast the electricity cost for every hour in the coming week in order to plan the production schedule that optimizes for electricity cost saving</p>
+        <p> This chart shows both the historical and forecast hourly electricity cost in Monterrey area.</p>
+        <p>Zoom in to partcular date range by mouse-dragging on the plot.</p>
+
+	</div>
+
+
+    <div class="container-fluid">
+            <div id="graph">
+                    <script>
+                    var graphs = {{plot | safe}};
+                    Plotly.plot('graph',graphs,{});
+                    </script>
+            </div>
+    </div>
+   
+    <div class="graph">
+		<p>More information about Graph</p>
+	</div>
+
+    <div class="graph">
+        <h3>Hours with Highest Prices</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12">
+            <div id="table">
+                    <script>
+                    var table = {{table | safe}};
+                    Plotly.plot('table',table,{});
+                    </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="graph">
+        <h3>Hours with Lowest Prices</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="tb">
+                    <script>
+                    var tb = {{tb | safe}};
+                    Plotly.plot('tb',tb,{});
+                    </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="graph">
+        <h3>Average Electricity Price by Weekdays</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="tbw">
+                    <script>
+                    var tbw = {{tbw | safe}};
+                    Plotly.plot('tbw',tbw,{});
+                    </script>
+            </div>
+        </div>
+    </div>
+
+    <h5>Download the file with the prediction data</h5>
+
+    <div class="container" align="left">
+      <a href="./static/data/monterrey_Total_P.csv" target="blank"><button class='btn btn-primary'>Download</button></a>
+      <p>  </p>
+     </div>
+
+
+
+{% endblock %}

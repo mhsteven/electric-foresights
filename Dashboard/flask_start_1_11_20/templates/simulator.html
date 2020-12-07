@@ -1,0 +1,87 @@
+{% extends "index.html" %}
+{% block content %}
+
+  <head>
+    <meta charset="utf-8">
+    <title>Savings Estimator</title>
+
+  </head>
+
+  <style>
+      #work_days {
+        background-color: 'green';
+          }
+  </style>
+
+  <body>
+
+    <div class="container">
+      <h1>Savings Estimator</h1>
+      <p>Our forecasting product enables many new ways to cut electricity bills without noticeable impact on your business. For instance, implementing alternative work schedules, adopting peak shaving, leveraging on power storage facilities, strategically engaging backup or co-generating power facilities and so on. Here, we briefly demonstrate how much our product can save you by simply engaging only the first two measures.</p>
+      <p>For the purpose of simulation, we select the recent 7 days to compare the predicted results vs the actual results, and thus determine how much actual savings you will make if you had based your decision making on the predicted results.</p>
+      <p>In this simulation, the alternative work schedule is implemented by shifting your operations to the days with the least predicted average cost in the week. The peaking-shaving strategy is implemented by moving X% of peak Y hours' power consumption to Z off-peak hours, in order to cut down peak hour costs without sacrificing the total consumption amount.</p>
+
+        <div class="row" style="background: #eff5fa; ">
+            <div class="col-md-6" id='Multi'>
+              <div>
+
+                <div id='predict_actual' style="background: #eff5fa; ">
+                  <script>
+                  var graphs = {{plot | safe}};
+                  Plotly.newPlot('predict_actual', graphs);
+
+                  </script>
+                </div>
+              </div>
+
+              <div id='work_days'>
+                <p>Please enter your current operating days:</p>
+                <label class="workdays"><input name="selector[]" class="Day_Checkbox" type="checkbox" value=7/>  MON </label>
+                <label class="workdays"><input name="selector[]" class="Day_Checkbox" type="checkbox" value=1/>  TUE </label>
+                <label class="workdays"><input name="selector[]" class="Day_Checkbox" type="checkbox" value=2/>  WED </label>
+                <label class="workdays"><input name="selector[]" class="Day_Checkbox" type="checkbox" value=3/>  THU </label>
+                <label class="workdays"><input name="selector[]" class="Day_Checkbox" type="checkbox" value=4/>  FRI </label>
+                <label class="workdays"><input name="selector[]" class="Day_Checkbox" type="checkbox" value=5/>  SAT </label>
+                <label class="workdays"><input name="selector[]" class="Day_Checkbox" type="checkbox" value=6/>  SUN </label>
+              </div>
+
+              <div>
+                <br>
+                <p>Enter daily operating hours using '-' to represent continous hours and ',' to separate discontinous hours. i.e 8-12,14-20 :</p>
+                <label class="qty">Operating Hours: <input name="workhours" id='workhours' type="text" value='0-23'></label>
+                <br>
+                <p>Enter hourly consumption in MW :</p>
+                <label class="qty">Hourly Consumption: <input name="hourlyqty" id='hourlyqty' type="text" value='5'>MW</label>
+                <br>
+                <br>
+                <p>Enter X% of peak consumption you want to shift to off-peak hours. i.e 30% should enter 0.3 :</p>
+                <label class="peakrate">Peak-shaving Rate: X=<input name="shave_rate" id='shave_rate' type="text" value='0.3'> </label>
+                <label class="qty">Enter peak Y hours: Y=<input name="topN" id='topN' type="text" value='4'></label>
+                <label class="qty">Enter off-peak Z hours: Z=<input name="leastM" id='leastM' type="text" value='8'></label>
+              </div>
+
+              <br>
+
+              <input type="button" id="save_value" name="save_value" value="View Savings" />
+              <input type="button" id='uncheck' name='Uncheck all' value='Uncheck all'/>
+              <input type="button" id='checkall' name='Select all' value='Select all'/>
+
+            </div>
+
+    </div>
+            <div class="col-lg-12">
+              <br>
+              <p class='chart_text1'>The follow chart shows the daily cost of various saving options: </p>
+                <div class="chart" id="simchart1">
+
+                </div>
+
+                <p id='chart_text2'></p>
+
+
+
+            </div>
+
+    </div>
+
+{% endblock %}
